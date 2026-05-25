@@ -7,32 +7,32 @@ import { ArrowRight } from "lucide-react";
 const categories = [
   {
     title: "Laptops",
-    image: "/images/categories/laptops.png",
+    image: "/images/categories/laptops.webp",
     description: "Ultra-performance laptops for creators and gamers.",
   },
   {
     title: "Smartphones",
-    image: "/images/categories/phones.png",
+    image: "/images/categories/phones.webp",
     description: "Flagship smartphones with futuristic technology.",
   },
   {
     title: "Gaming",
-    image: "/images/categories/gaming.png",
+    image: "/images/categories/gaming.webp",
     description: "Immersive gaming setups and powerful accessories.",
   },
   {
     title: "Audio",
-    image: "/images/categories/audio.png",
+    image: "/images/categories/audio.webp",
     description: "Premium headphones, speakers, and audio devices.",
   },
   {
     title: "Smartwatches",
-    image: "/images/categories/smartwatch.png",
+    image: "/images/categories/smartwatch.webp",
     description: "Smart wearable technology for modern lifestyles.",
   },
   {
     title: "Accessories",
-    image: "/images/categories/accessories.png",
+    image: "/images/categories/accessories.webp",
     description: "Premium accessories for every tech experience.",
   },
 ];

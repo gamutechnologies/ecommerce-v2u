@@ -7,9 +7,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 const products = [
-  "/images/home/hero-laptop.png",
-  "/images/home/hero-phone.png",
-  "/images/home/hero-headphones.png",
+  "/images/home/hero-laptop.webp",
+  "/images/home/hero-phone.webp",
+  "/images/home/hero-headphones.webp",
 ];
 
 export default function HeroSection() {
