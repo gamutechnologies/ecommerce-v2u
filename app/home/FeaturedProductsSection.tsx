@@ -53,15 +53,27 @@ const ALL_PRODUCTS: Product[] = [
     category: "Phones",
     featured: true,
     colorOptions: [
-      { label: "Cosmic Orange", swatch: "#F97316", image: "/images/product/iphone17promax-orange.webp" },
-      { label: "Deep Blue",  swatch: "#1C1C1E", image: "/images/product/iphone17promax-blue.webp" },
-      { label: "Silver",swatch: "#C4B49E", image: "/images/product/iphone17promax-silver.webp"},
+      {
+        label: "Cosmic Orange",
+        swatch: "#F97316",
+        image: "/images/product/iphone17promax-orange.webp",
+      },
+      {
+        label: "Deep Blue",
+        swatch: "#1C1C1E",
+        image: "/images/product/iphone17promax-blue.webp",
+      },
+      {
+        label: "Silver",
+        swatch: "#C4B49E",
+        image: "/images/product/iphone17promax-silver.webp",
+      },
     ],
     storageOptions: [
       { label: "256 GB" },
       { label: "512 GB", priceSuffix: "+$100" },
-      { label: "1 TB",   priceSuffix: "+$200" },
-      { label: "2 TB",   priceSuffix: "+$300" },
+      { label: "1 TB", priceSuffix: "+$200" },
+      { label: "2 TB", priceSuffix: "+$300" },
     ],
   },
   {
@@ -77,14 +89,26 @@ const ALL_PRODUCTS: Product[] = [
     category: "Phones",
     featured: true,
     colorOptions: [
-      { label: "Titanium Black",  swatch: "#2C2C2E", image: "/images/product/galaxy-black.png"  },
-      { label: "Titanium Silver", swatch: "#A8A8A8", image: "/images/product/galaxy-silver.png" },
-      { label: "Titanium Blue",   swatch: "#3A5A8C", image: "/images/product/galaxy-blue.png"   },
+      {
+        label: "Titanium Black",
+        swatch: "#2C2C2E",
+        image: "/images/product/galaxy-black.png",
+      },
+      {
+        label: "Titanium Silver",
+        swatch: "#A8A8A8",
+        image: "/images/product/galaxy-silver.png",
+      },
+      {
+        label: "Titanium Blue",
+        swatch: "#3A5A8C",
+        image: "/images/product/galaxy-blue.png",
+      },
     ],
     storageOptions: [
       { label: "256 GB" },
       { label: "512 GB", priceSuffix: "+$100" },
-      { label: "1 TB",   priceSuffix: "+$200" },
+      { label: "1 TB", priceSuffix: "+$200" },
     ],
   },
   // ── Laptops ─────────────────────────────────────────────────────────────────
@@ -101,13 +125,21 @@ const ALL_PRODUCTS: Product[] = [
     category: "Laptops",
     featured: true,
     colorOptions: [
-      { label: "Space Black", swatch: "#1C1C1E", image: "/images/product/macbook-black.png"  },
-      { label: "Silver",      swatch: "#A8A8A8", image: "/images/product/macbook-silver.png" },
+      {
+        label: "Space Black",
+        swatch: "#1C1C1E",
+        image: "/images/product/macbook-black.png",
+      },
+      {
+        label: "Silver",
+        swatch: "#A8A8A8",
+        image: "/images/product/macbook-silver.png",
+      },
     ],
     storageOptions: [
       { label: "512 GB" },
-      { label: "1 TB",  priceSuffix: "+$200" },
-      { label: "2 TB",  priceSuffix: "+$400" },
+      { label: "1 TB", priceSuffix: "+$200" },
+      { label: "2 TB", priceSuffix: "+$400" },
     ],
   },
   {
@@ -123,8 +155,16 @@ const ALL_PRODUCTS: Product[] = [
     category: "Laptops",
     featured: true,
     colorOptions: [
-      { label: "Eclipse Gray",  swatch: "#3A3A3C", image: "/images/product/rog-gray.png"  },
-      { label: "Platinum White",swatch: "#F0EFEB", image: "/images/product/rog-white.png" },
+      {
+        label: "Eclipse Gray",
+        swatch: "#3A3A3C",
+        image: "/images/product/rog-gray.png",
+      },
+      {
+        label: "Platinum White",
+        swatch: "#F0EFEB",
+        image: "/images/product/rog-white.png",
+      },
     ],
     storageOptions: [
       { label: "1 TB" },
@@ -145,9 +185,21 @@ const ALL_PRODUCTS: Product[] = [
     category: "Audio",
     featured: true,
     colorOptions: [
-      { label: "Midnight Black",   swatch: "#1A1A1A", image: "/images/product/headphones-black.png"  },
-      { label: "Platinum Silver",  swatch: "#C0C0C0", image: "/images/product/headphones-silver.png" },
-      { label: "Midnight Blue",    swatch: "#1B2A4A", image: "/images/product/headphones-blue.png"   },
+      {
+        label: "Midnight Black",
+        swatch: "#1A1A1A",
+        image: "/images/product/headphones-black.png",
+      },
+      {
+        label: "Platinum Silver",
+        swatch: "#C0C0C0",
+        image: "/images/product/headphones-silver.png",
+      },
+      {
+        label: "Midnight Blue",
+        swatch: "#1B2A4A",
+        image: "/images/product/headphones-blue.png",
+      },
     ],
   },
   {
@@ -163,8 +215,16 @@ const ALL_PRODUCTS: Product[] = [
     category: "Audio",
     featured: false, // ← hidden from Featured section
     colorOptions: [
-      { label: "Jet Black", swatch: "#1A1A1A", image: "/images/product/jbl-black.png" },
-      { label: "Cobalt",    swatch: "#0047AB", image: "/images/product/jbl-blue.png"  },
+      {
+        label: "Jet Black",
+        swatch: "#1A1A1A",
+        image: "/images/product/jbl-black.png",
+      },
+      {
+        label: "Cobalt",
+        swatch: "#0047AB",
+        image: "/images/product/jbl-blue.png",
+      },
     ],
   },
   // ── Gaming ───────────────────────────────────────────────────────────────────
@@ -181,8 +241,16 @@ const ALL_PRODUCTS: Product[] = [
     category: "Gaming",
     featured: true,
     colorOptions: [
-      { label: "Carbon Black", swatch: "#1A1A1A", image: "/images/product/gpro-black.png" },
-      { label: "Ghost White",  swatch: "#F5F5F0", image: "/images/product/gpro-white.png" },
+      {
+        label: "Carbon Black",
+        swatch: "#1A1A1A",
+        image: "/images/product/gpro-black.png",
+      },
+      {
+        label: "Ghost White",
+        swatch: "#F5F5F0",
+        image: "/images/product/gpro-white.png",
+      },
     ],
   },
   {
@@ -197,7 +265,11 @@ const ALL_PRODUCTS: Product[] = [
     category: "Gaming",
     featured: true,
     colorOptions: [
-      { label: "Matte Black", swatch: "#1A1A1A", image: "/images/product/odyssey-black.png" },
+      {
+        label: "Matte Black",
+        swatch: "#1A1A1A",
+        image: "/images/product/odyssey-black.png",
+      },
     ],
   },
   // ── Wearables ────────────────────────────────────────────────────────────────
@@ -214,9 +286,21 @@ const ALL_PRODUCTS: Product[] = [
     category: "Wearables",
     featured: true,
     colorOptions: [
-      { label: "Titanium",      swatch: "#8A8A8A", image: "/images/product/watch-titanium.png" },
-      { label: "Black",         swatch: "#1C1C1E", image: "/images/product/watch-black.png"    },
-      { label: "Natural",       swatch: "#C4B49E", image: "/images/product/watch-natural.png"  },
+      {
+        label: "Titanium",
+        swatch: "#8A8A8A",
+        image: "/images/product/watch-titanium.png",
+      },
+      {
+        label: "Black",
+        swatch: "#1C1C1E",
+        image: "/images/product/watch-black.png",
+      },
+      {
+        label: "Natural",
+        swatch: "#C4B49E",
+        image: "/images/product/watch-natural.png",
+      },
     ],
   },
 ];
@@ -238,10 +322,17 @@ const containerVariants = {
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 32, scale: 0.97 },
-  show:   { opacity: 1, y: 0,  scale: 1,   transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-  exit:   { opacity: 0, y: -16, scale: 0.96, transition: { duration: 0.25 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+    },
+  },
+  exit: { opacity: 0, y: -16, scale: 0.96, transition: { duration: 0.25 } },
 };
-
 
 // ─── Section ──────────────────────────────────────────────────────────────────
 
@@ -264,7 +355,6 @@ export default function FeaturedProductsSection() {
 
   return (
     <section className="relative overflow-hidden px-6 py-28">
-
       {/* ── Background ─────────────────────────────────────────────────────── */}
       <div className="absolute inset-0 -z-10 bg-[#F0F6FF]" />
       {/* Dot grid texture */}
@@ -281,7 +371,6 @@ export default function FeaturedProductsSection() {
       <div className="absolute bottom-[-5%] right-[-8%] h-96 w-96 rounded-full bg-[#7DBBFF]/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
-
         {/* ── Section Header ───────────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 36 }}
@@ -397,6 +486,7 @@ export default function FeaturedProductsSection() {
                 {visibleProducts.map((product) => (
                   <motion.div key={product.id} variants={cardVariants}>
                     <ProductCard
+                      id={product.id}
                       brand={product.brand}
                       name={product.name}
                       originalPrice={product.originalPrice}
@@ -409,7 +499,7 @@ export default function FeaturedProductsSection() {
                       storageOptions={product.storageOptions}
                       onAddToCart={(color, storage) => {
                         console.log(
-                          `[Cart] ${product.name} — ${color.label}${storage ? ` / ${storage.label}` : ""}`
+                          `[Cart] ${product.name} — ${color.label}${storage ? ` / ${storage.label}` : ""}`,
                         );
                       }}
                       onWishlist={(name) => {
@@ -468,7 +558,8 @@ export default function FeaturedProductsSection() {
               Didn't find what you're looking for?
             </p>
             <p className="mt-1 text-sm text-gray-500">
-              Browse our complete catalog with 10,000+ products across every category.
+              Browse our complete catalog with 10,000+ products across every
+              category.
             </p>
           </div>
           <Link href="/shop">
@@ -485,7 +576,6 @@ export default function FeaturedProductsSection() {
             </motion.span>
           </Link>
         </motion.div>
-
       </div>
     </section>
   );

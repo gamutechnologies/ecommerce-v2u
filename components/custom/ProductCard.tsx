@@ -1,24 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, ShoppingCart, Star, Check, Zap } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface ColorOption {
-  label: string;       // e.g. "Orange Titanium"
-  swatch: string;      // CSS color value e.g. "#F97316"
-  image: string;       // product image path for this color
+  label: string; // e.g. "Orange Titanium"
+  swatch: string; // CSS color value e.g. "#F97316"
+  image: string; // product image path for this color
 }
 
 export interface StorageOption {
-  label: string;       // e.g. "256 GB"
+  label: string; // e.g. "256 GB"
   priceSuffix?: string; // e.g. "+$100"
 }
 
 export interface ProductCardProps {
+  id: number | string;
   brand: string;
   name: string;
   originalPrice: string;
@@ -29,36 +32,55 @@ export interface ProductCardProps {
   reviewCount?: number;
   colorOptions: ColorOption[];
   storageOptions?: StorageOption[];
-  onAddToCart?: (color: ColorOption, storage?: StorageOption) => void;
+  onAddToCart?: (
+    productProps: any,
+    color: ColorOption,
+    storage?: StorageOption,
+  ) => void;
   onWishlist?: (name: string) => void;
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function ProductCard({
-  brand,
-  name,
-  originalPrice,
-  salePrice,
-  salePriceLabel = "Cash Discount Price",
-  badge,
-  rating = 5,
-  reviewCount = 128,
-  colorOptions,
-  storageOptions,
-  onAddToCart,
-  onWishlist,
-}: ProductCardProps) {
-  const [selectedColor, setSelectedColor] = useState<ColorOption>(colorOptions[0]);
-  const [selectedStorage, setSelectedStorage] = useState<StorageOption | undefined>(
-    storageOptions?.[0]
+export default function ProductCard(props: ProductCardProps) {
+  const {
+    id,
+    brand,
+    name,
+    originalPrice,
+    salePrice,
+    salePriceLabel = "Cash Discount Price",
+    badge,
+    rating = 5,
+    reviewCount = 128,
+    colorOptions,
+    storageOptions,
+    onWishlist,
+  } = props;
+
+  const [selectedColor, setSelectedColor] = useState<ColorOption>(
+    colorOptions[0],
   );
+  const [selectedStorage, setSelectedStorage] = useState<
+    StorageOption | undefined
+  >(storageOptions?.[0]);
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
+  const { addToCart } = useCart();
 
   const handleAddToCart = () => {
     setAddedToCart(true);
-    onAddToCart?.(selectedColor, selectedStorage);
+    // Parse numeric price from salePrice
+    const parsedPrice = parseFloat(salePrice.replace(/[^0-9.]/g, ""));
+    addToCart({
+      productId: id,
+      name,
+      price: parsedPrice,
+      image: selectedColor.image,
+      color: selectedColor.label,
+      storage: selectedStorage?.label,
+      quantity: 1,
+    });
     setTimeout(() => setAddedToCart(false), 2000);
   };
 
@@ -72,11 +94,13 @@ export default function ProductCard({
     <motion.div
       initial={{ opacity: 0, y: 28, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+      transition={{
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+      }}
       whileHover={{ y: -5 }}
       className="group relative flex h-full flex-col overflow-hidden rounded-[32px] border border-[#7DBBFF]/20 bg-white/70 p-5 backdrop-blur-2xl shadow-[0_4px_24px_rgba(0,102,255,0.07)]"
     >
-
       {/* ── Background hover glow ───────────────────────────────────────────── */}
       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <div className="absolute left-1/2 top-1/4 h-48 w-48 -translate-x-1/2 rounded-full bg-[#0066FF]/8 blur-3xl" />
@@ -107,7 +131,9 @@ export default function ProductCard({
           >
             <Heart
               size={15}
-              className={isWishlisted ? "fill-pink-500 text-pink-500" : "text-gray-400"}
+              className={
+                isWishlisted ? "fill-pink-500 text-pink-500" : "text-gray-400"
+              }
             />
           </motion.div>
         </motion.button>
@@ -115,15 +141,21 @@ export default function ProductCard({
 
       {/* ── Row 2: Product image ────────────────────────────────────────────── */}
       {/* Fixed height so all cards align regardless of image size */}
-      <div className="relative z-10 mt-3 flex h-44 shrink-0 items-center justify-center">
+      <Link
+        href={`/product/${id}`}
+        className="relative z-10 mt-3 flex h-44 shrink-0 items-center justify-center cursor-pointer group-hover:scale-105 transition-transform duration-500"
+      >
         <div className="absolute h-28 w-28 rounded-full bg-[#0066FF]/8 blur-2xl" />
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedColor.label}
             initial={{ opacity: 0, scale: 0.82, y: 10, rotateY: -10 }}
-            animate={{ opacity: 1, scale: 1,    y: 0,  rotateY: 0   }}
-            exit={  { opacity: 0, scale: 0.82, y: -8,  rotateY: 10  }}
-            transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+            animate={{ opacity: 1, scale: 1, y: 0, rotateY: 0 }}
+            exit={{ opacity: 0, scale: 0.82, y: -8, rotateY: 10 }}
+            transition={{
+              duration: 0.32,
+              ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+            }}
             className="relative z-10"
           >
             <Image
@@ -135,16 +167,21 @@ export default function ProductCard({
             />
           </motion.div>
         </AnimatePresence>
-      </div>
+      </Link>
 
       {/* ── Row 3: Brand + Name + Rating ───────────────────────────────────── */}
       <div className="relative z-10 mt-4">
         <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#0066FF]/70">
           {brand}
         </p>
-        <h3 className="mt-0.5 truncate text-[17px] font-black tracking-tight text-gray-900">
-          {name}
-        </h3>
+        <Link
+          href={`/product/${id}`}
+          className="hover:text-[#0066FF] transition-colors"
+        >
+          <h3 className="mt-0.5 truncate text-[17px] font-black tracking-tight text-gray-900 transition-colors inherit">
+            {name}
+          </h3>
+        </Link>
         <div className="mt-1.5 flex items-center gap-1.5">
           <div className="flex items-center gap-0.5">
             {[...Array(5)].map((_, i) => (
@@ -165,7 +202,9 @@ export default function ProductCard({
 
       {/* ── Row 4: Price ───────────────────────────────────────────────────── */}
       <div className="relative z-10 mt-3 rounded-2xl border border-[#7DBBFF]/15 bg-white/60 px-4 py-3">
-        <p className="text-[11px] text-gray-400 line-through">{originalPrice}</p>
+        <p className="text-[11px] text-gray-400 line-through">
+          {originalPrice}
+        </p>
         <div className="flex items-baseline justify-between">
           <h4 className="text-[20px] font-black tracking-tight text-gray-900">
             {salePrice}
@@ -199,7 +238,9 @@ export default function ProductCard({
                 >
                   {opt.label}
                   {opt.priceSuffix && (
-                    <span className={`ml-1 text-[10px] ${isActive ? "text-white/70" : "text-gray-400"}`}>
+                    <span
+                      className={`ml-1 text-[10px] ${isActive ? "text-white/70" : "text-gray-400"}`}
+                    >
                       {opt.priceSuffix}
                     </span>
                   )}
@@ -230,7 +271,10 @@ export default function ProductCard({
                   key={color.label}
                   whileHover={{ scale: 1.18 }}
                   whileTap={{ scale: 0.88 }}
-                  onClick={() => selectedColor.label !== color.label && setSelectedColor(color)}
+                  onClick={() =>
+                    selectedColor.label !== color.label &&
+                    setSelectedColor(color)
+                  }
                   aria-label={color.label}
                   title={color.label}
                   className="relative flex h-7 w-7 items-center justify-center rounded-full"
@@ -253,7 +297,11 @@ export default function ProductCard({
                         transition={{ duration: 0.16 }}
                         className="absolute flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white/85"
                       >
-                        <Check size={8} strokeWidth={3.5} className="text-gray-800" />
+                        <Check
+                          size={8}
+                          strokeWidth={3.5}
+                          className="text-gray-800"
+                        />
                       </motion.span>
                     )}
                   </AnimatePresence>
@@ -306,7 +354,6 @@ export default function ProductCard({
           </AnimatePresence>
         </motion.button>
       </div>
-
     </motion.div>
   );
 }

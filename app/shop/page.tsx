@@ -6,12 +6,30 @@ import FilterSidebarSection from "./sections/FilterSidebarSection";
 
 export default function ShopPage() {
   return (
-    <>
-      <ShopHeroSection />
-      <SortingBarSection />
-      <FilterSidebarSection />
-      <ProductGridSection />
-      <PaginationSection />
-    </>
+    <div className="relative overflow-hidden bg-[#FAFCFF]">
+      {/* Decorative ambient background elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute -top-[20%] left-[-10%] h-[800px] w-[800px] rounded-full bg-[#0066FF]/5 blur-[120px]" />
+        <div className="absolute top-[40%] right-[-10%] h-[600px] w-[600px] rounded-full bg-[#7DBBFF]/10 blur-[100px]" />
+      </div>
+
+      <div className="relative z-10">
+        <ShopHeroSection />
+
+        <div className="mx-auto max-w-7xl px-6 pb-24 pt-8">
+          <SortingBarSection />
+
+          <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[280px_1fr] items-start">
+            <div className="hidden lg:block sticky top-32">
+              <FilterSidebarSection />
+            </div>
+            <div className="flex flex-col gap-12">
+              <ProductGridSection />
+              <PaginationSection />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ShoppingCart, Search, User } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -12,6 +13,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const { cartCount } = useCart();
+
   return (
     <div className="fixed top-6 left-1/2 z-50 w-full -translate-x-1/2 px-4">
       <motion.nav
@@ -63,13 +66,16 @@ export default function Navbar() {
 
         {/* Right Icons */}
         <div className="flex items-center gap-2">
-          {[{ icon: Search }, { icon: ShoppingCart }, { icon: User }].map(
-            (item, index) => {
-              const Icon = item.icon;
+          {[
+            { icon: Search, href: "/search" },
+            { icon: ShoppingCart, href: "/cart" },
+            { icon: User, href: "/profile" },
+          ].map((item, index) => {
+            const Icon = item.icon;
 
-              return (
+            return (
+              <Link key={index} href={item.href}>
                 <motion.button
-                  key={index}
                   whileHover={{
                     scale: 1.08,
                     y: -2,
@@ -84,10 +90,16 @@ export default function Navbar() {
                     size={18}
                     className="relative z-10 text-gray-700 transition-colors duration-300 group-hover:text-[#0066FF]"
                   />
+
+                  {item.icon === ShoppingCart && cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#0066FF] text-[10px] font-bold text-white">
+                      {cartCount}
+                    </span>
+                  )}
                 </motion.button>
-              );
-            },
-          )}
+              </Link>
+            );
+          })}
         </div>
       </motion.nav>
     </div>

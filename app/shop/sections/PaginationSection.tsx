@@ -1,28 +1,53 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function PaginationSection() {
+  const pages = [1, 2, 3, "...", 8];
+
   return (
-    <div className="flex items-center justify-center gap-3 py-16">
-
-      <button className="rounded-full border p-2">
-        <ChevronLeft />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      className="flex items-center justify-center gap-2 py-10"
+    >
+      <button className="group flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-[#0066FF] hover:text-[#0066FF] active:scale-95 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+        <ChevronLeft
+          size={18}
+          className="transition-transform group-hover:-translate-x-0.5"
+        />
       </button>
 
-      {[1,2,3,4,5].map((n) => (
-        <button
-          key={n}
-          className="rounded-full border px-4 py-2 hover:bg-[#0066FF] hover:text-white"
-        >
-          {n}
-        </button>
-      ))}
+      {pages.map((n, i) =>
+        n === "..." ? (
+          <div
+            key={`dots-${i}`}
+            className="flex h-10 w-10 items-center justify-center text-gray-400"
+          >
+            <MoreHorizontal size={18} />
+          </div>
+        ) : (
+          <button
+            key={`page-${n}`}
+            className={`flex h-10 w-10 items-center justify-center rounded-xl border text-[15px] font-medium transition-all active:scale-95 ${
+              n === 1
+                ? "border-[#0066FF] bg-[#0066FF] text-white shadow-[0_4px_14px_rgba(0,102,255,0.3)]"
+                : "border-gray-200 bg-white text-gray-600 hover:border-[#0066FF] hover:text-[#0066FF] shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
+            }`}
+          >
+            {n}
+          </button>
+        ),
+      )}
 
-      <button className="rounded-full border p-2">
-        <ChevronRight />
+      <button className="group flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-white transition-all hover:border-[#0066FF] hover:text-[#0066FF] active:scale-95 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+        <ChevronRight
+          size={18}
+          className="transition-transform group-hover:translate-x-0.5"
+        />
       </button>
-
-    </div>
+    </motion.div>
   );
 }
