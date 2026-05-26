@@ -49,12 +49,12 @@ export default function FAQSection() {
   return (
     <section className="relative overflow-hidden px-6 py-28">
       {/* Background Glow */}
-      <div className="absolute left-[-10%] top-[0%] h-[500px] w-[500px] rounded-full bg-[#0066FF]/10 blur-3xl" />
+      <div className="absolute left-[-10%] top-[0%] h-125 w-125 rounded-full bg-[#0066FF]/10 blur-3xl" />
 
-      <div className="absolute bottom-[-20%] right-[-10%] h-[500px] w-[500px] rounded-full bg-[#7DBBFF]/20 blur-3xl" />
+      <div className="absolute bottom-[-20%] right-[-10%] h-125 w-125 rounded-full bg-[#7DBBFF]/20 blur-3xl" />
 
       {/* Grid Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,102,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,102,255,0.03)_1px,transparent_1px)] bg-[size:70px_70px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,102,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,102,255,0.03)_1px,transparent_1px)] bg-size-[70px_70px]" />
 
       <div className="relative mx-auto max-w-5xl">
         {/* Heading */}
@@ -77,7 +77,7 @@ export default function FAQSection() {
           {/* Title */}
           <h2 className="mt-6 text-5xl font-black tracking-tight text-gray-900 md:text-6xl">
             Questions About
-            <span className="bg-gradient-to-r from-[#0066FF] to-[#7DBBFF] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#0066FF] to-[#7DBBFF] bg-clip-text text-transparent">
               {" "}
               Our Platform
             </span>
@@ -129,7 +129,7 @@ export default function FAQSection() {
                       rotate: isActive ? 180 : 0,
                     }}
                     transition={{ duration: 0.3 }}
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0066FF] to-[#7DBBFF] text-white shadow-[0_0_20px_rgba(0,102,255,0.2)]"
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-[#0066FF] to-[#7DBBFF] text-white shadow-[0_0_20px_rgba(0,102,255,0.2)]"
                   >
                     {isActive ? <Minus size={20} /> : <Plus size={20} />}
                   </motion.div>
@@ -154,7 +154,7 @@ export default function FAQSection() {
                       className="overflow-hidden"
                     >
                       <div className="relative z-10 px-8 pb-8">
-                        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#7DBBFF]/30 to-transparent" />
+                        <div className="h-px w-full bg-linear-to-r from-transparent via-[#7DBBFF]/30 to-transparent" />
 
                         <p className="mt-6 text-sm leading-8 text-gray-600">
                           {faq.answer}
