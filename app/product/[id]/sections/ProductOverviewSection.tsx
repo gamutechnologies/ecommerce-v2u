@@ -49,7 +49,7 @@ export default function ProductOverviewSection({ product }: { product: any }) {
         className="flex flex-col gap-6"
       >
         <div className="relative aspect-square w-full overflow-hidden rounded-[40px] border border-[#7DBBFF]/20 bg-white/70 p-8 shadow-[0_4px_30px_rgba(0,102,255,0.05)] backdrop-blur-2xl flex items-center justify-center group">
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#0066FF]/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-linear-to-tr from-[#0066FF]/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           <AnimatePresence mode="wait">
             <motion.div
               key={activeImage}
@@ -170,7 +170,7 @@ export default function ProductOverviewSection({ product }: { product: any }) {
           </div>
         )}
 
-        <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        <div className="my-8 h-px w-full bg-linear-to-r from-transparent via-gray-200 to-transparent" />
 
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex h-14 items-center justify-between rounded-xl border border-gray-200 bg-white px-4 sm:w-32 shadow-sm">
@@ -193,7 +193,7 @@ export default function ProductOverviewSection({ product }: { product: any }) {
             onClick={handleAddToCart}
             className={`group relative flex h-14 flex-1 items-center justify-center gap-2 overflow-hidden rounded-xl px-8 font-bold text-white shadow-[0_4px_20px_rgba(0,102,255,0.4)] transition-transform active:scale-95 ${added ? "bg-green-500" : "bg-[#0066FF]"}`}
           >
-            <div className="absolute inset-0 bg-white/20 translate-y-[100%] transition-transform duration-300 group-hover:translate-y-[0%]" />
+            <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform duration-300 group-hover:translate-y-[0%]" />
             <ShoppingCart size={20} className="relative z-10" />
             <span className="relative z-10">
               {added ? "Added!" : "Add to Cart"}

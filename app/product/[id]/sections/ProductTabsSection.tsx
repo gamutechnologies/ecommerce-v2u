@@ -29,14 +29,14 @@ export default function ProductTabsSection({ product }: { product: any }) {
             {activeTab === tab.id && (
               <motion.div
                 layoutId="activeTabIndicator"
-                className="absolute bottom-[-1px] left-0 right-0 h-0.5 bg-[#0066FF]"
+                className="absolute -bottom-px left-0 right-0 h-0.5 bg-[#0066FF]"
               />
             )}
           </button>
         ))}
       </div>
 
-      <div className="relative min-h-[300px] py-10">
+      <div className="relative min-h-75 py-10">
         <AnimatePresence mode="wait">
           {activeTab === "description" && (
             <motion.div

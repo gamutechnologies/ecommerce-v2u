@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 export default function ShopHeroSection() {
   return (
     <section className="relative overflow-hidden px-6 pb-12 pt-28">
-      <div className="absolute left-[10%] top-[-20%] h-[300px] w-[500px] rounded-full bg-[#0066FF]/20 blur-[100px]" />
-      <div className="absolute bottom-[-10%] right-[10%] h-[300px] w-[500px] rounded-full bg-[#7DBBFF]/20 blur-[100px]" />
+      <div className="absolute left-[10%] top-[-20%] h-75 w-125 rounded-full bg-[#0066FF]/20 blur-[100px]" />
+      <div className="absolute bottom-[-10%] right-[10%] h-75 w-125 rounded-full bg-[#7DBBFF]/20 blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl text-center">
         <motion.div
@@ -29,7 +29,7 @@ export default function ShopHeroSection() {
           className="text-5xl font-black tracking-tight text-gray-900 md:text-7xl lg:text-[80px]"
         >
           Shop{" "}
-          <span className="bg-gradient-to-r from-[#0066FF] to-[#7DBBFF] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[#0066FF] to-[#7DBBFF] bg-clip-text text-transparent">
             Premium Tech
           </span>
         </motion.h1>

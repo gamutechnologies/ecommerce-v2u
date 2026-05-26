@@ -56,7 +56,7 @@ export default function FilterSidebarSection() {
                   <Check size={12} className="text-white" strokeWidth={3} />
                 </div>
               </div>
-              <span className="text-[15px] text-gray-600 transition-colors group-hover:text-gray-900 group-has-[:checked]:font-medium group-has-[:checked]:text-[#0066FF]">
+              <span className="text-[15px] text-gray-600 transition-colors group-hover:text-gray-900 group-has-checked:font-medium group-has-checked:text-[#0066FF]">
                 {item}
               </span>
             </label>
@@ -93,7 +93,7 @@ export default function FilterSidebarSection() {
                   <Check size={12} className="text-white" strokeWidth={3} />
                 </div>
               </div>
-              <span className="text-[15px] text-gray-600 transition-colors group-hover:text-gray-900 group-has-[:checked]:font-medium group-has-[:checked]:text-[#0066FF]">
+              <span className="text-[15px] text-gray-600 transition-colors group-hover:text-gray-900 group-has-checked:font-medium group-has-checked:text-[#0066FF]">
                 {item}
               </span>
             </label>
@@ -131,7 +131,7 @@ export default function FilterSidebarSection() {
                 </div>
                 <div className="pointer-events-none opacity-0 transition-opacity peer-checked:opacity-100 absolute inset-0 rounded-full border-2 border-[#0066FF]" />
               </div>
-              <span className="text-[15px] text-gray-600 transition-colors group-hover:text-gray-900 group-has-[:checked]:font-medium group-has-[:checked]:text-[#0066FF]">
+              <span className="text-[15px] text-gray-600 transition-colors group-hover:text-gray-900 group-has-checked:font-medium group-has-checked:text-[#0066FF]">
                 {item}
               </span>
             </label>
